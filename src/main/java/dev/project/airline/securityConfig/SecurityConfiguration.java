@@ -70,11 +70,7 @@ public class SecurityConfiguration {
                             .cors(cors -> cors.configurationSource(corsConfiguration()))
                             .csrf(csrf -> csrf.disable())
                             .formLogin(form -> form.disable())
-                            .logout(out -> out
-                                            .logoutUrl(base_url + "/logout")
-                                            .invalidateHttpSession(true)                                            
-                                            .clearAuthentication(true)
-                                            )
+
                             .authorizeHttpRequests(auth -> auth
                                             .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                                             .requestMatchers(base_url + "/login").hasAnyRole("USER", "ADMIN")// principio de mínimos
@@ -82,6 +78,7 @@ public class SecurityConfiguration {
                                             .requestMatchers(base_url + "/private").access(hasScope("READ"))
                                             .requestMatchers(base_url).permitAll() 
                                             .requestMatchers(base_url + "/users").permitAll()
+                                            .requestMatchers(base_url + "/register").permitAll()
                                             // .anyRequest().access(hasScope("READ"))
                                             .anyRequest().authenticated()
                                             )
@@ -118,6 +115,3 @@ public class SecurityConfiguration {
     //             .build());
     // }
 }
-
-
-// tokenBlacklistService.addTokenToBlacklist(token);
