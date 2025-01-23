@@ -20,8 +20,11 @@ public class Profile {
     @Column(name = "id_profile")
     private Long id;
 
+    private String first_name;
+    private String last_name;
+    private String dni;
+    private String img;
     private String email;
-    private String address;
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
@@ -30,9 +33,13 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(String email, String address, User user) {
+    public Profile(Long id, String first_name, String last_name, String dni, String img, String email, User user) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.dni = dni;
+        this.img = img;
         this.email = email;
-        this.address = address;
         this.user = user;
     }
 
@@ -52,12 +59,44 @@ public class Profile {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
-    
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+        
 }
