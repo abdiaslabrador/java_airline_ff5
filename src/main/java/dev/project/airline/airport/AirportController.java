@@ -11,11 +11,11 @@ import dev.project.airline.user.UserService;
 
 @RestController
 @RequestMapping("/api/v1")
-public class AirportControllerr {
+public class AirportController {
 
     private final UserService userService;
 
-    public AirportControllerr(UserService userService) {
+    public AirportController(UserService userService) {
         this.userService = userService;
     }
 
