@@ -73,7 +73,8 @@ public class SecurityConfiguration {
                             .logout(out -> out
                                             .logoutUrl(base_url + "/logout")
                                             .invalidateHttpSession(true)                                            
-                                            .deleteCookies("JSESSIONID"))
+                                            .clearAuthentication(true)
+                                            )
                             .authorizeHttpRequests(auth -> auth
                                             .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                                             .requestMatchers(base_url + "/login").hasAnyRole("USER", "ADMIN")// principio de mínimos
@@ -117,3 +118,6 @@ public class SecurityConfiguration {
     //             .build());
     // }
 }
+
+
+// tokenBlacklistService.addTokenToBlacklist(token);
