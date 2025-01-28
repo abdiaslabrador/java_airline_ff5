@@ -1,11 +1,5 @@
 package dev.project.airline.flight;
 
-import java.time.LocalDateTime;
-
-import dev.project.airline.airport.Airport;
-import dev.project.airline.airport.AirportRequest;
-import dev.project.airline.airport.AirportResponse;
-
 public class FlightMapper {
 
      public static Flight toEntity(FlightRequest flightRequest) {
@@ -25,17 +19,17 @@ public class FlightMapper {
 
     public static FlightResponse toResponse(Flight flight) {
         return new FlightResponse(
-                    flight.getId(),
-                    flight.getDepartureDateTime(),
-                    flight.getArrivalDateTime(),
-                    flight.getCode(),
-                    flight.isState(),
-                    flight.getMaxSeats(),
-                    flight.getSeatsOccupied(),
-                    flight.getCompanyName(),
-                    flight.getBlockingTime(),
-                    flight.getAirportOrigin(),
-                    flight.getAirportDest()
+            flight.getId(),
+            flight.getDepartureDateTime(),
+            flight.getArrivalDateTime(),
+            flight.getCode(),
+            flight.isState(),
+            flight.getMaxSeats(),
+            flight.getSeatsOccupied(),
+            flight.getCompanyName(),
+            flight.getBlockingTime(),
+            flight.getAirportOrigin(),
+            flight.getAirportDest()
         );
     }
 }
