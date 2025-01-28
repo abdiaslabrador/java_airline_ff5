@@ -31,7 +31,3 @@ INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de Bos
 INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de Washington-Dulles', 'Washington D.C.', 'IAD');
 INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de Phoenix Sky Harbor', 'Phoenix', 'PHX');
 INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de Detroit Metropolitan Wayne County', 'Detroit', 'DTW');
-INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de Minneapolis-Saint Paul', 'Minneapolis', 'MSP');
-INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de Charlotte Douglas', 'Charlotte', 'CLT');
-INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de Philadelphia', 'Philadelphia', 'PHL');
-INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de San Diego', 'San Diego', 'SAN');
