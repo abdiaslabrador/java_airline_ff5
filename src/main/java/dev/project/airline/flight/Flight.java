@@ -41,9 +41,8 @@ public class Flight {
     }
 
 
-    public Flight(Long id, LocalDateTime departureDateTime, LocalDateTime arrivalDateTime, String code, boolean state, int maxSeats, int seatsOccupied,
+    public Flight(LocalDateTime departureDateTime, LocalDateTime arrivalDateTime, String code, boolean state, int maxSeats, int seatsOccupied,
             String companyName, LocalDateTime blockingTime, Airport airportOrigin, Airport airportDest) {
-        this.id = id;
         this.code = code;
         this.state = state;
         this.maxSeats = maxSeats;
@@ -125,4 +124,25 @@ public class Flight {
         this.airportDest = airportDest;
     }
 
+
+    public LocalDateTime getDepartureDateTime() {
+        return departureDateTime;
+    }
+
+
+    public void setDepartureDateTime(LocalDateTime departureDateTime) {
+        this.departureDateTime = departureDateTime;
+    }
+
+
+    public LocalDateTime getArrivalDateTime() {
+        return arrivalDateTime;
+    }
+
+
+    public void setArrivalDateTime(LocalDateTime arrivalDateTime) {
+        this.arrivalDateTime = arrivalDateTime;
+    }
+
+    
 }
