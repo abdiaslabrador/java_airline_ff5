@@ -13,20 +13,18 @@ import jakarta.persistence.Table;
 public class Airport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_profile")
     private Long id;
-
     private String name;
     private String city;
-    private String country;
+    private String code;
 
     public Airport() {
     }
     
-    public Airport(String name, String city, String country) {
+    public Airport(String name, String city, String code) {
         this.name = name;
         this.city = city;
-        this.country = country;
+        this.code = code;
     }
 
     public Long getId() {
@@ -37,14 +35,6 @@ public class Airport {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCity() {
         return city;
     }
@@ -53,12 +43,20 @@ public class Airport {
         this.city = city;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCode() {
+        return code;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

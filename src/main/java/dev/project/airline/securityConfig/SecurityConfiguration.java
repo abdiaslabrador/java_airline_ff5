@@ -77,7 +77,10 @@ public class SecurityConfiguration {
                                             .requestMatchers(HttpMethod.POST, base_url + "/auth/token").hasAnyRole("USER", "ADMIN")// principio de mínimos
                                             .requestMatchers(base_url + "/private").access(hasScope("READ"))
                                             .requestMatchers(base_url).permitAll() 
-                                            .requestMatchers(base_url + "/users").permitAll()
+                                            .requestMatchers(HttpMethod.GET, base_url + "/airports").hasRole("ADMIN")
+                                            .requestMatchers(HttpMethod.POST, base_url + "/airports").hasRole("ADMIN")
+                                            .requestMatchers(HttpMethod.DELETE, base_url + "/airports").hasRole("ADMIN")
+                                            .requestMatchers(HttpMethod.PUT, base_url + "/airports").hasRole("ADMIN")
                                             .requestMatchers(base_url + "/register").permitAll()
                                             // .anyRequest().access(hasScope("READ"))
                                             .anyRequest().authenticated()
