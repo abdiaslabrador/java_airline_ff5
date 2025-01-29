@@ -2,15 +2,15 @@
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ROLE_USER');
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ROLE_ADMIN');
 
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'CREATE_AIRPORTS'); --3
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'READ_AIRPORTS'); --4
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'UPDATE_AIRPORTS'); --5
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'DELETE_AIRPORTS'); --6
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_CREATE_AIRPORTS'); --3
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_READ_AIRPORTS'); --4
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_UPDATE_AIRPORTS'); --5
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_DELETE_AIRPORTS'); --6
 
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'READ_FLIGHTS'); --7
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'CREATE_FLIGHTS'); --8
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'UPDATE_FLIGHTS'); --9
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'DELETE_FLIGHTS'); --10
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_READ_FLIGHTS'); --7
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_CREATE_FLIGHTS'); --8
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_UPDATE_FLIGHTS'); --9
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_DELETE_FLIGHTS'); --10
 
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepe', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepa', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');

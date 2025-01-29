@@ -27,7 +27,6 @@ public class Flight {
     private int maxSeats;
     private int seatsOccupied;
     private String companyName;
-    private LocalDateTime blockingTime;
 
     @ManyToOne
     @JoinColumn(name = "airport_origin_id")
@@ -42,12 +41,11 @@ public class Flight {
 
 
     public Flight(LocalDateTime departureDateTime, LocalDateTime arrivalDateTime, String code, boolean state, int maxSeats, int seatsOccupied,
-            String companyName, LocalDateTime blockingTime, Airport airportOrigin, Airport airportDest) {
+            String companyName,  Airport airportOrigin, Airport airportDest) {
         this.code = code;
         this.state = state;
         this.maxSeats = maxSeats;
         this.seatsOccupied = seatsOccupied;
-        this.blockingTime = blockingTime;
         this.airportOrigin = airportOrigin;
         this.airportDest = airportDest;
     }
@@ -100,14 +98,6 @@ public class Flight {
         this.companyName = companyName;
     }
 
-    public LocalDateTime getBlockingTime() {
-        return blockingTime;
-    }
-
-    public void setBlockingTime(LocalDateTime blockingTime) {
-        this.blockingTime = blockingTime;
-    }
-
     public Airport getAirportOrigin() {
         return airportOrigin;
     }
@@ -139,10 +129,7 @@ public class Flight {
         return arrivalDateTime;
     }
 
-
     public void setArrivalDateTime(LocalDateTime arrivalDateTime) {
         this.arrivalDateTime = arrivalDateTime;
-    }
-
-    
+    }    
 }

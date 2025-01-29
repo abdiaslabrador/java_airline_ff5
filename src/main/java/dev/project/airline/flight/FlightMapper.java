@@ -13,7 +13,6 @@ public class FlightMapper {
             flightRequest.maxSeats(),
             flightRequest.seatsOccupied(),
             flightRequest.companyName(),
-            flightRequest.blockingTime(),
             originAirport,
             destinationAirport
         );
@@ -29,7 +28,6 @@ public class FlightMapper {
             flight.getMaxSeats(),
             flight.getSeatsOccupied(),
             flight.getCompanyName(),
-            flight.getBlockingTime(),
             flight.getAirportOrigin(),
             flight.getAirportDest()
         );

@@ -76,15 +76,15 @@ public class SecurityConfiguration {
                                             .requestMatchers(HttpMethod.POST, base_url + "/auth/token").hasAnyRole("USER", "ADMIN")// principio de mínimos
                                             .requestMatchers(base_url + "/private").access(hasScope("READ"))
                                             .requestMatchers(base_url).permitAll() 
-                                            .requestMatchers(HttpMethod.POST, base_url + "/airports").access(hasScope("CREATE_AIRPORTS"))
-                                            .requestMatchers(HttpMethod.GET, base_url + "/airports").access(hasScope("READ_AIRPORTS"))
-                                            .requestMatchers(HttpMethod.PUT, base_url + "/airports").access(hasScope("UPDATE_AIRPORTS"))
-                                            .requestMatchers(HttpMethod.DELETE, base_url + "/airports").access(hasScope("DELETE_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.POST, base_url + "/airports").access(hasScope("ADMIN_CREATE_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.GET, base_url + "/airports").access(hasScope("ADMIN_READ_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.PUT, base_url + "/airports").access(hasScope("ADMIN_UPDATE_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.DELETE, base_url + "/airports").access(hasScope("ADMIN_DELETE_AIRPORTS"))
 
-                                            .requestMatchers(HttpMethod.POST, base_url + "/flights").access(hasScope("CREATE_FLIGHTS"))
-                                            .requestMatchers(HttpMethod.GET, base_url + "/flights").access(hasScope("READ_FLIGHTS"))
-                                            .requestMatchers(HttpMethod.PUT, base_url + "/flights").access(hasScope("UPDATE_FLIGHTS"))
-                                            .requestMatchers(HttpMethod.DELETE, base_url + "/flights").access(hasScope("DELETE_FLIGHTS"))
+                                            .requestMatchers(HttpMethod.POST, base_url + "/flights").access(hasScope("ADMIN_CREATE_FLIGHTS"))
+                                            .requestMatchers(HttpMethod.GET, base_url + "/flights").access(hasScope("ADMIN_READ_FLIGHTS"))
+                                            .requestMatchers(HttpMethod.PUT, base_url + "/flights").access(hasScope("ADMIN_UPDATE_FLIGHTS"))
+                                            .requestMatchers(HttpMethod.DELETE, base_url + "/flights").access(hasScope("ADMIN_DELETE_FLIGHTS"))
 
                                             .requestMatchers(base_url + "/flights/users").permitAll()
                                             .requestMatchers(base_url + "/register").permitAll()

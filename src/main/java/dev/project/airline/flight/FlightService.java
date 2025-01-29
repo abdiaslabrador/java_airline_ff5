@@ -54,7 +54,6 @@ public class FlightService {
         }
 
         flight.setArrivalDateTime(airportRequest.arrivalDateTime());
-        flight.setBlockingTime(airportRequest.blockingTime());
         flight.setCode(airportRequest.code());
         flight.setCompanyName(airportRequest.companyName());
         flight.setDepartureDateTime(null);

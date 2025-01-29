@@ -13,7 +13,6 @@ public record  FlightResponse(
     int maxSeats,
     int seatsOccupied,
     String companyName,
-    LocalDateTime blockingTime,
     Airport airportOrigin,
     Airport airportDest
 ) {
