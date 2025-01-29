@@ -22,7 +22,6 @@ public class FlightService {
     private FlightRepository flightRepository;
     private AirportRepository airportRepository;
 
-
     public FlightService(FlightRepository flightRepository, AirportRepository airportRepository) {
         this.flightRepository = flightRepository;
         this.airportRepository = airportRepository;
@@ -46,10 +45,14 @@ public class FlightService {
 
     public FlightResponse updateFlight(Long id, FlightRequest airportRequest) {
         // validFlight here
+        Flight flight = flightRepository.findById(id).orElseThrow(() -> new FlightNotFoundException("Flight not found with id: " + id));
         Airport destAirport = airportRepository.findById(airportRequest.airportDestId()).orElseThrow(() -> new FlightNotFoundException("Airport not found with id: " + airportRequest.airportDestId()));
         Airport originAirport = airportRepository.findById(airportRequest.airportOriginId()).orElseThrow(() -> new FlightNotFoundException("Airport not found with id: " + airportRequest.airportOriginId()));
 
-        Flight flight = flightRepository.findById(id).orElseThrow(() -> new FlightNotFoundException("Flight not found with id: " + id));
+        if(airportRequest.seatsOccupied() > flight.getMaxSeats()) {
+            throw new FlightNotFoundException("Seats occupied can't be greater than max seats");
+        }
+
         flight.setArrivalDateTime(airportRequest.arrivalDateTime());
         flight.setBlockingTime(airportRequest.blockingTime());
         flight.setCode(airportRequest.code());
@@ -57,7 +60,11 @@ public class FlightService {
         flight.setDepartureDateTime(null);
         flight.setMaxSeats(airportRequest.maxSeats());
         flight.setSeatsOccupied(airportRequest.seatsOccupied());
-        flight.setState(airportRequest.state());
+        if((flight.getMaxSeats() - flight.getSeatsOccupied()) == 0) {
+            flight.setState(false);
+        }else{
+            flight.setState(true);
+        }
         flight.setAirportDest(destAirport);
         flight.setAirportOrigin(originAirport);
         
@@ -69,10 +76,4 @@ public class FlightService {
        flightRepository.deleteById(id);
        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
-
-    // private boolean isInvalidAirport(AirportRequest airportRequest) {
-    //     return airportRequest.name()  == null || 
-    //            airportRequest.city() == null || 
-    //            airportRequest.code() == null;
-    // }
 }

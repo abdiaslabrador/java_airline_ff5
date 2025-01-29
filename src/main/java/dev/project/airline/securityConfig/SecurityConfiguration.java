@@ -86,6 +86,7 @@ public class SecurityConfiguration {
                                             .requestMatchers(HttpMethod.PUT, base_url + "/flights").access(hasScope("UPDATE_FLIGHTS"))
                                             .requestMatchers(HttpMethod.DELETE, base_url + "/flights").access(hasScope("DELETE_FLIGHTS"))
 
+                                            .requestMatchers(base_url + "/flights/users").permitAll()
                                             .requestMatchers(base_url + "/register").permitAll()
                                             // .anyRequest().access(hasScope("READ"))
                                             .anyRequest().authenticated()

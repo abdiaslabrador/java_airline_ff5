@@ -1,5 +1,7 @@
 package dev.project.airline.profile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import dev.project.airline.user.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,13 +26,24 @@ public class Profile {
     private String lastName;
     private String dni;
     private String img;
+
+    @Column(unique = true)
     private String email;
 
     @OneToOne
+    @JsonIgnore
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
     private User user;
 
     public Profile() {
+    }
+
+    public Profile(String firstName, String lastName, String dni, String img, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dni = dni;
+        this.img = img;
+        this.email = email;
     }
 
     public Profile(Long id, String firstName, String lastName, String dni, String img, String email, User user) {

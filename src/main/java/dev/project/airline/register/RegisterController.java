@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.project.airline.user.UserDto;
 import dev.project.airline.user.UserService;
+import dev.project.airline.user.UserRequest;
 
 @RestController
 @RequestMapping("/api/v1/register")
@@ -23,7 +24,7 @@ public class RegisterController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Map<String,String>> register(@RequestBody UserDto newUser) {
+    public ResponseEntity<Map<String,String>> register(@RequestBody UserRequest newUser) {
 
         Map<String, String> response = registerService.save(newUser);
 

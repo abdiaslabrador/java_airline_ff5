@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import dev.project.airline.airport.AirportRequest;
 import dev.project.airline.airport.AirportResponse;
+import dev.project.airline.user.User;
+import dev.project.airline.user.UserResponse;
+import dev.project.airline.user.UserService;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,14 +19,21 @@ import java.util.List;
 public class FlightController {
 
     private final FlightService flightService;
+    private final UserService userService;
 
-    public FlightController(FlightService flightService) {
+    public FlightController(FlightService flightService, UserService userService) {
         this.flightService = flightService;
+        this.userService = userService;
     }
 
     @GetMapping("")
     public List<FlightResponse>getFlights() {
         return flightService.findAll();
+    }
+
+    @GetMapping("users")
+    public UserResponse  users() {
+        return userService.findAll();
     }
 
     @PostMapping("")

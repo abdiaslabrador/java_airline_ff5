@@ -14,9 +14,8 @@ public class UserService {
         this.repository = repository;
     }
 
-    public User findAll(){
-        User users = repository.findByUsername("pepe").get();
-        
-        return users;
+    public UserResponse findAll(){
+        User users = repository.findByUsername("jose").get();
+        return UserMapper.toResponse(users);
     }
 }
