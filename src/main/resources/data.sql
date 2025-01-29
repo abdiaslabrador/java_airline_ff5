@@ -1,7 +1,16 @@
 -- Insert data
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ROLE_USER');
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ROLE_ADMIN');
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'READ');
+
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'CREATE_AIRPORTS'); --3
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'READ_AIRPORTS'); --4
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'UPDATE_AIRPORTS'); --5
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'DELETE_AIRPORTS'); --6
+
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'READ_FLIGHTS'); --7
+-- INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'CREATE_FLIGHTS'); --8
+-- INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'UPDATE_FLIGHTS'); --9
+-- INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'DELETE_FLIGHTS'); --10
 
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepe', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepa', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');
@@ -11,8 +20,11 @@ INSERT INTO profiles (id_profile, first_name, last_name, dni, img, email, user_i
 INSERT INTO profiles (id_profile, first_name, last_name, dni, img, email, user_id) VALUES (DEFAULT,  'Daniel', 'Perez', '234567891', 'cell_phone.png', 'danielperez@gmail.com', 2);
 
 INSERT INTO roles_users (role_id, user_id) VALUES (1, 1);
-INSERT INTO roles_users (role_id, user_id) VALUES (2, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (3, 1);
+INSERT INTO roles_users (role_id, user_id) VALUES (4, 1);
+INSERT INTO roles_users (role_id, user_id) VALUES (5, 1);
+INSERT INTO roles_users (role_id, user_id) VALUES (6, 1);
+INSERT INTO roles_users (role_id, user_id) VALUES (7, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (3, 2);
 
 INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de Dallas/Fort Worth', 'Dallas', 'DFW');

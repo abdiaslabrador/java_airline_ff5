@@ -27,7 +27,7 @@ public class AirportController {
     }
 
     @GetMapping("")
-    public List<AirportResponse>getAirport() {
+    public List<AirportResponse>getAirports() {
         return airportService.findAll();
     }
 

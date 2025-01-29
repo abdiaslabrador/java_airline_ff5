@@ -45,7 +45,6 @@ public class SecurityConfiguration {
             this.jpaUserDetailsService = userDetailsService;
     }
 
-
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -77,10 +76,16 @@ public class SecurityConfiguration {
                                             .requestMatchers(HttpMethod.POST, base_url + "/auth/token").hasAnyRole("USER", "ADMIN")// principio de mínimos
                                             .requestMatchers(base_url + "/private").access(hasScope("READ"))
                                             .requestMatchers(base_url).permitAll() 
-                                            .requestMatchers(HttpMethod.GET, base_url + "/airports").hasRole("ADMIN")
-                                            .requestMatchers(HttpMethod.POST, base_url + "/airports").hasRole("ADMIN")
-                                            .requestMatchers(HttpMethod.DELETE, base_url + "/airports").hasRole("ADMIN")
-                                            .requestMatchers(HttpMethod.PUT, base_url + "/airports").hasRole("ADMIN")
+                                            .requestMatchers(HttpMethod.POST, base_url + "/airports").access(hasScope("CREATE_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.GET, base_url + "/airports").access(hasScope("READ_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.PUT, base_url + "/airports").access(hasScope("UPDATE_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.DELETE, base_url + "/airports").access(hasScope("DELETE_AIRPORTS"))
+
+                                            // .requestMatchers(HttpMethod.POST, base_url + "/airports").access(hasScope("CREATE_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.GET, base_url + "/flights").access(hasScope("READ_FLIGHTS"))
+                                            // .requestMatchers(HttpMethod.PUT, base_url + "/airports").access(hasScope("UPDATE_AIRPORTS"))
+                                            // .requestMatchers(HttpMethod.DELETE, base_url + "/airports").access(hasScope("DELETE_AIRPORTS"))
+
                                             .requestMatchers(base_url + "/register").permitAll()
                                             // .anyRequest().access(hasScope("READ"))
                                             .anyRequest().authenticated()
@@ -93,7 +98,6 @@ public class SecurityConfiguration {
             http.headers(header -> header.frameOptions(frame -> frame.sameOrigin()));
 
             return http.build();
-
     }
 
    @Bean
