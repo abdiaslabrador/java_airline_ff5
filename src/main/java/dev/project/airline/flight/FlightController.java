@@ -26,22 +26,22 @@ public class FlightController {
         return flightService.findAll();
     }
 
-    // @PostMapping("")
-    // public  AirportResponse saveFlight(@RequestBody AirportRequest airportRequest) {
-    //     return flightService.save(airportRequest);
-    // }
+    @PostMapping("")
+    public  FlightResponse  saveFlight(@RequestBody FlightRequest flightRequest) {
+        return flightService.saveFlight(flightRequest);
+    }
 
-    // @PutMapping("/{id}")
-    // public ResponseEntity<AirportResponse> updateFlight(
-    //         @PathVariable Long id,
-    //         @RequestBody AirportRequest airportRequest) {
-    //     AirportResponse updatedAirport = flightService.updateFlight(id, airportRequest);
-    //     return ResponseEntity.ok(updatedAirport);
-    // }
+    @PutMapping("/{id}")
+    public ResponseEntity<FlightResponse>updateFlight(
+        @PathVariable Long id,
+        @RequestBody FlightRequest flightRequest) {
+        FlightResponse updatedAirport = flightService.updateFlight(id, flightRequest);
+        return ResponseEntity.ok(updatedAirport);
+    }
 
-    // @DeleteMapping("/{id}")
-    // public ResponseEntity<AirportResponse> deleteFlight(@PathVariable Long id){
-    //     return flightService.deleteById(id);
-    // }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<FlightResponse> deleteFlight(@PathVariable Long id){
+        return flightService.deleteById(id);
+    }
 
 }

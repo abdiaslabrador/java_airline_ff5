@@ -2,8 +2,6 @@ package dev.project.airline.flight;
 
 import java.time.LocalDateTime;
 
-import dev.project.airline.airport.Airport;
-
 public record FlightRequest(
     LocalDateTime departureDateTime,
     LocalDateTime arrivalDateTime,
@@ -13,11 +11,8 @@ public record FlightRequest(
     int seatsOccupied,
     String companyName,
     LocalDateTime blockingTime,
-    Airport airportOrigin,
-    Airport airportDest
+    Long  airportOriginId,
+    Long  airportDestId
 ) {
 
 }
-
-
- 

@@ -81,10 +81,10 @@ public class SecurityConfiguration {
                                             .requestMatchers(HttpMethod.PUT, base_url + "/airports").access(hasScope("UPDATE_AIRPORTS"))
                                             .requestMatchers(HttpMethod.DELETE, base_url + "/airports").access(hasScope("DELETE_AIRPORTS"))
 
-                                            // .requestMatchers(HttpMethod.POST, base_url + "/airports").access(hasScope("CREATE_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.POST, base_url + "/flights").access(hasScope("CREATE_FLIGHTS"))
                                             .requestMatchers(HttpMethod.GET, base_url + "/flights").access(hasScope("READ_FLIGHTS"))
-                                            // .requestMatchers(HttpMethod.PUT, base_url + "/airports").access(hasScope("UPDATE_AIRPORTS"))
-                                            // .requestMatchers(HttpMethod.DELETE, base_url + "/airports").access(hasScope("DELETE_AIRPORTS"))
+                                            .requestMatchers(HttpMethod.PUT, base_url + "/flights").access(hasScope("UPDATE_FLIGHTS"))
+                                            .requestMatchers(HttpMethod.DELETE, base_url + "/flights").access(hasScope("DELETE_FLIGHTS"))
 
                                             .requestMatchers(base_url + "/register").permitAll()
                                             // .anyRequest().access(hasScope("READ"))

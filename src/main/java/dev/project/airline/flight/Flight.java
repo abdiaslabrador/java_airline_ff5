@@ -29,11 +29,11 @@ public class Flight {
     private String companyName;
     private LocalDateTime blockingTime;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "airport_origin_id")
     private Airport airportOrigin;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "airport_dest_id")
     private Airport airportDest;
 

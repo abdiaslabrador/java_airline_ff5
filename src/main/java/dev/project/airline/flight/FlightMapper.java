@@ -1,8 +1,10 @@
 package dev.project.airline.flight;
 
+import dev.project.airline.airport.Airport;
+
 public class FlightMapper {
 
-     public static Flight toEntity(FlightRequest flightRequest) {
+     public static Flight toEntity(FlightRequest flightRequest, Airport originAirport, Airport destinationAirport) {
         return new Flight(
             flightRequest.departureDateTime(),
             flightRequest.arrivalDateTime(),
@@ -12,8 +14,8 @@ public class FlightMapper {
             flightRequest.seatsOccupied(),
             flightRequest.companyName(),
             flightRequest.blockingTime(),
-            flightRequest.airportOrigin(),
-            flightRequest.airportDest()
+            originAirport,
+            destinationAirport
         );
     }
 

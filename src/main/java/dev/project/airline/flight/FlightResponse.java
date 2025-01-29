@@ -15,7 +15,7 @@ public record  FlightResponse(
     String companyName,
     LocalDateTime blockingTime,
     Airport airportOrigin,
-    Airport airportest
+    Airport airportDest
 ) {
     
 }
