@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,9 +28,21 @@ public class ReservationController {
     // }
 
     @GetMapping("/client")
-    public ResponseEntity<List<ReservationResponse>> AuthenticatedClientReservation(){
-        List<ReservationResponse> userReservations = reservationService.authenticatedClientReservation();
+    public ResponseEntity<List<ReservationClientResponse>> authenticatedClientReservation(){
+        List<ReservationClientResponse> userReservations = reservationService.authenticatedClientReservation();
         return new ResponseEntity<>(userReservations, HttpStatus.OK);
     }
+
+    @GetMapping("/admin/client/{username}")
+    public ResponseEntity<List<ReservationClientResponse>> adminSpecificClient(@PathVariable String username){
+        List<ReservationClientResponse>  userReservations = reservationService.adminSpecificClient(username);
+        return new ResponseEntity<>(userReservations, HttpStatus.OK);
+    }
+
+    // @GetMapping("/admin/client_resume")
+    // public ResponseEntity<List<ReservationResumeAdminResponse>> adminResumeReservation(){
+    //     List<ReservationResumeAdminResponse> userReservations = reservationService.adminResumeReservation();
+    //     return new ResponseEntity<>(userReservations, HttpStatus.OK);
+    // }
 
 }

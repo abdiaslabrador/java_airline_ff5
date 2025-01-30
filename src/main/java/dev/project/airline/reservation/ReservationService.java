@@ -23,7 +23,7 @@ public class ReservationService {
         this.reservationRepository = reservationRepository;
     }
 
-    public List<ReservationResponse> authenticatedClientReservation(){
+    public List<ReservationClientResponse> authenticatedClientReservation(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
 
@@ -32,11 +32,11 @@ public class ReservationService {
 
         List<Reservation> reservations = reservationRepository.findByUserId(userAuthenticated.getId());
         
-        List<ReservationResponse> reservationsResponse = new ArrayList<>();
+        List<ReservationClientResponse> reservationsResponse = new ArrayList<>();
 
         for (Reservation reservation : reservations) {
                 reservationsResponse.add( 
-                                            new ReservationResponse(
+                                            new ReservationClientResponse(
                                                 reservation.getId(),
                                                 reservation.getBlockingTime(),
                                                 reservation.getQuantitySeats(),
@@ -45,6 +45,25 @@ public class ReservationService {
                                         );
         }
 
+        return reservationsResponse;
+    }
+
+
+    public List<ReservationClientResponse> adminSpecificClient(String username){
+        Optional<User> userOptional = Optional.ofNullable(userRepository.findByUsername(username).orElseThrow(() -> new UserNotFoundException("user  not found with the username")));
+        User userAuthenticated = userOptional.get();
+        List<Reservation> reservations = reservationRepository.findByUserId(userAuthenticated.getId());
+        List<ReservationClientResponse> reservationsResponse = new ArrayList<>();
+        for (Reservation reservation : reservations) {
+            reservationsResponse.add( 
+                                        new ReservationClientResponse(
+                                            reservation.getId(),
+                                            reservation.getBlockingTime(),
+                                            reservation.getQuantitySeats(),
+                                            reservation.getFlight()
+                                        )
+                                    );
+        }
         return reservationsResponse;
     }
 }

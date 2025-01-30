@@ -11,7 +11,7 @@
 //     }
 
 //     public static ReservationClientResponse toResponse(Reservation reservation){
-//         // return new ReservationResponse(
+//         // return new ReservationClientResponse(
             
 //         // );
 //     }

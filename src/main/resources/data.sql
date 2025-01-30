@@ -1,6 +1,6 @@
 -- Insert data
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ROLE_USER');
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ROLE_ADMIN');
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ROLE_USER'); --1
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ROLE_ADMIN'); --2
 
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_CREATE_AIRPORTS'); --3
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_READ_AIRPORTS'); --4
@@ -11,8 +11,9 @@ INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_READ_FLIGHTS'); --7
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_CREATE_FLIGHTS'); --8
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_UPDATE_FLIGHTS'); --9
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_DELETE_FLIGHTS'); --10
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_READ_RESERVATION'); --11
 
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'USER_READ_RESERVATION'); --11
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'USER_READ_RESERVATION'); --12
 
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepe', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepa', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');
@@ -34,10 +35,13 @@ INSERT INTO roles_users (role_id, user_id) VALUES (7, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (8, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (9, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (10, 1);
-INSERT INTO roles_users (role_id, user_id) VALUES (11, 4);
+INSERT INTO roles_users (role_id, user_id) VALUES (11, 1);
+
+INSERT INTO roles_users (role_id, user_id) VALUES (3, 2); 
+
 INSERT INTO roles_users (role_id, user_id) VALUES (1, 4);
 INSERT INTO roles_users (role_id, user_id) VALUES (2, 4);
-INSERT INTO roles_users (role_id, user_id) VALUES (3, 2);
+INSERT INTO roles_users (role_id, user_id) VALUES (12, 4);
 
 INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional de Dallas/Fort Worth', 'Dallas', 'DFW');
 INSERT INTO airports (name, city, code) VALUES ('Aeropuerto Internacional John F. Kennedy', 'Nueva York', 'JFK');

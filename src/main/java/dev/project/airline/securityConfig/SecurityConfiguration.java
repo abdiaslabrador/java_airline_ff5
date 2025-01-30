@@ -83,6 +83,7 @@ public class SecurityConfiguration {
                                             .requestMatchers(HttpMethod.DELETE, base_url + "/flights").access(hasScope("ADMIN_DELETE_FLIGHTS"))
 
                                             .requestMatchers(HttpMethod.GET, base_url + "/reservations/client").access(hasScope("USER_READ_RESERVATION"))
+                                            .requestMatchers(HttpMethod.GET, base_url + "/reservations/admin/**").access(hasScope("ADMIN_READ_RESERVATION"))
 
                                             .requestMatchers(base_url + "/flights/users").permitAll()
                                             .requestMatchers(base_url + "/register").permitAll()
