@@ -1,6 +1,6 @@
 package dev.project.airline.reservation;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import dev.project.airline.flight.Flight;
 import dev.project.airline.user.User;
@@ -27,13 +27,15 @@ public class Reservation {
     @Column(name = "flight_id")
     private Flight flight;
 
+    private int quantitySeats;
     private Timestamp blockingTime;
 
-    public Reservation(Long id, User user, Flight flight, Timestamp blockingTime) {
+    public Reservation(Long id, User user, Flight flight, Timestamp blockingTime, int quantitySeats) {
         this.id = id;
         this.user = user;
         this.flight = flight;
         this.blockingTime = blockingTime;
+        this.quantitySeats = quantitySeats;
     }
 
     public Long getId() {
@@ -66,6 +68,14 @@ public class Reservation {
 
     public void setBlockingTime(Timestamp blockingTime) {
         this.blockingTime = blockingTime;
+    }
+
+    public int getQuantitySeats() {
+        return quantitySeats;
+    }
+
+    public void setQuantitySeats(int quantitySeats) {
+        this.quantitySeats = quantitySeats;
     }
     
 }
