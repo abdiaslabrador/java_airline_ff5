@@ -14,7 +14,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -26,8 +25,6 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
 import static org.springframework.security.oauth2.core.authorization.OAuth2AuthorizationManagers.hasScope;
 
@@ -85,7 +82,7 @@ public class SecurityConfiguration {
                                             .requestMatchers(HttpMethod.PUT, base_url + "/flights").access(hasScope("ADMIN_UPDATE_FLIGHTS"))
                                             .requestMatchers(HttpMethod.DELETE, base_url + "/flights").access(hasScope("ADMIN_DELETE_FLIGHTS"))
 
-                                            .requestMatchers(HttpMethod.DELETE, base_url + "/reservations/client/**").access(hasScope("USER_READ_FLIGHTS"))
+                                            .requestMatchers(HttpMethod.GET, base_url + "/reservations/client").access(hasScope("USER_READ_RESERVATION"))
 
                                             .requestMatchers(base_url + "/flights/users").permitAll()
                                             .requestMatchers(base_url + "/register").permitAll()

@@ -1,8 +1,5 @@
 package dev.project.airline.user;
 
-import java.util.Set;
-import dev.project.airline.profile.Profile;
-
 public class UserMapper {
     public static User toEntity(UserRequest userRequest){
         User user = new User();

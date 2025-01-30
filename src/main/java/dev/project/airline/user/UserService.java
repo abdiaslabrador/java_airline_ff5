@@ -1,9 +1,5 @@
 package dev.project.airline.user;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service

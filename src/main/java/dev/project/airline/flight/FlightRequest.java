@@ -10,7 +10,6 @@ public record FlightRequest(
     int maxSeats,
     int seatsOccupied,
     String companyName,
-    LocalDateTime blockingTime,
     Long  airportOriginId,
     Long  airportDestId
 ) {

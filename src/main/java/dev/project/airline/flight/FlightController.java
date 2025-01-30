@@ -1,17 +1,11 @@
 package dev.project.airline.flight;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import dev.project.airline.airport.AirportRequest;
-import dev.project.airline.airport.AirportResponse;
-import dev.project.airline.user.User;
 import dev.project.airline.user.UserResponse;
 import dev.project.airline.user.UserService;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController

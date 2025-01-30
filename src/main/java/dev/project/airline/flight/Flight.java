@@ -1,17 +1,20 @@
 package dev.project.airline.flight;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import dev.project.airline.airport.Airport;
-import dev.project.airline.user.User;
-import jakarta.persistence.Column;
+import dev.project.airline.reservation.Reservation;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -35,6 +38,10 @@ public class Flight {
     @ManyToOne
     @JoinColumn(name = "airport_dest_id")
     private Airport airportDest;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, orphanRemoval = true)
+    public List<Reservation> reservations;
 
     public Flight() {
     }

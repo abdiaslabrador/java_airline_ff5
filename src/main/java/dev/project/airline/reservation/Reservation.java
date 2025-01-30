@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -20,15 +21,20 @@ public class Reservation {
     private Long id;
     
     @ManyToOne
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @Column(name = "flight_id")
+    @JoinColumn(name = "flight_id")
     private Flight flight;
 
     private int quantitySeats;
     private Timestamp blockingTime;
+
+    
+
+    public Reservation() {
+    }
 
     public Reservation(Long id, User user, Flight flight, Timestamp blockingTime, int quantitySeats) {
         this.id = id;
