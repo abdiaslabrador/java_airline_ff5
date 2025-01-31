@@ -15,6 +15,8 @@ INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_DELETE_FLIGHTS'); --10
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_READ_RESERVATION'); --11
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'USER_READ_RESERVATION'); --12
 
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'READ_SEARCH_FLIGHTS'); --13
+
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepe', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepa', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');
 INSERT INTO users (id_user, username, password) VALUES (default, 'jose', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');
@@ -36,6 +38,7 @@ INSERT INTO roles_users (role_id, user_id) VALUES (8, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (9, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (10, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (11, 1);
+INSERT INTO roles_users (role_id, user_id) VALUES (13, 1);
 
 INSERT INTO roles_users (role_id, user_id) VALUES (3, 2); 
 
