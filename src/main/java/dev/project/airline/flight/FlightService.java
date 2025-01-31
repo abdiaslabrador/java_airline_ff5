@@ -1,5 +1,6 @@
 package dev.project.airline.flight;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 import dev.project.airline.airport.Airport;
 import dev.project.airline.airport.AirportRepository;
 import dev.project.airline.flight.exceptions.FlightNotFoundException;
+import java.util.stream.Collectors;
+
 
 @Service
 public class FlightService {
@@ -67,5 +70,10 @@ public class FlightService {
     public ResponseEntity<FlightResponse>deleteById(Long id) {
        flightRepository.deleteById(id);
        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+    }
+
+    public List<FlightResponse> search(String originCodeAirport, String destinationCodeAirport, LocalDateTime timestamp, int seats){
+        List<Flight> flights = flightRepository.findAvailableFlights(originCodeAirport, destinationCodeAirport, timestamp, seats);
+        return flights.stream().map(FlightMapper::toResponse).collect(Collectors.toList());
     }
 }
