@@ -12,7 +12,7 @@ public record ReservationResumeAdminResponse(
         Timestamp blockingTime,
         int quantitySeats,
         UserResponse user,
-        FlightResponse flight
+        ReservationFlightResume flight
 ) {
 }
 

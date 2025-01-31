@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.project.airline.airport.Airport;
 import dev.project.airline.reservation.Reservation;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +26,7 @@ public class Flight {
     private Long id;
     private LocalDateTime departureDateTime;
     private LocalDateTime arrivalDateTime;
+    @Column(unique = true)
     private String code;
     private boolean state;
     private int maxSeats;

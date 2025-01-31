@@ -15,34 +15,30 @@ import dev.project.airline.flight.FlightService;
 @RequestMapping("/api/v1/reservations")
 public class ReservationController {
     
-    // private final FlightService flightService;
-    // private final UserService userService;
     private final ReservationService reservationService;
     
-    public ReservationController(FlightService flightService, ReservationService reservationService) {
+    public ReservationController( ReservationService reservationService) {
         this.reservationService = reservationService;
     }
 
-    // public ReservationController() {
-        
-    // }
-
+    // -Los clientes deberán poder obtener el listado de sus reservas con información de los vuelos (sus reservas)
     @GetMapping("/client")
     public ResponseEntity<List<ReservationClientResponse>> authenticatedClientReservation(){
         List<ReservationClientResponse> userReservations = reservationService.authenticatedClientReservation();
         return new ResponseEntity<>(userReservations, HttpStatus.OK);
     }
 
+    // -Debemos poder obtener la lista del historial de reservas por cada usuario (ROLE_USER) *
     @GetMapping("/admin/client/{username}")
     public ResponseEntity<List<ReservationClientResponse>> adminSpecificClient(@PathVariable String username){
         List<ReservationClientResponse>  userReservations = reservationService.adminSpecificClient(username);
         return new ResponseEntity<>(userReservations, HttpStatus.OK);
     }
 
-    // @GetMapping("/admin/client_resume")
-    // public ResponseEntity<List<ReservationResumeAdminResponse>> adminResumeReservation(){
-    //     List<ReservationResumeAdminResponse> userReservations = reservationService.adminResumeReservation();
+    // -Listado **resumido** de las reservas efectuadas por parte los clientes.
+    // @GetMapping("/admin/resumeclient")
+    // public ResponseEntity<List<ReservationResumeResponse>> adminResumeReservation(){
+    //     List<ReservationResumeResponse> userReservations = reservationService.adminResumeReservation();
     //     return new ResponseEntity<>(userReservations, HttpStatus.OK);
     // }
-
 }
