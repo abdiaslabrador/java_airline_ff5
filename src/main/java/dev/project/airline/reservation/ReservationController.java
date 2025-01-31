@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.project.airline.flight.FlightService;
-
 @RestController
 @RequestMapping("/api/v1/reservations")
 public class ReservationController {
@@ -36,9 +34,9 @@ public class ReservationController {
     }
 
     // -Listado **resumido** de las reservas efectuadas por parte los clientes.
-    // @GetMapping("/admin/resumeclient")
-    // public ResponseEntity<List<ReservationResumeResponse>> adminResumeReservation(){
-    //     List<ReservationResumeResponse> userReservations = reservationService.adminResumeReservation();
-    //     return new ResponseEntity<>(userReservations, HttpStatus.OK);
-    // }
+    @GetMapping("/admin/resumeclient")
+    public ResponseEntity<List<ReservationResumeResponse>> adminResumeReservation(){
+        List<ReservationResumeResponse> userReservations = reservationService.adminResumeReservation();
+        return new ResponseEntity<>(userReservations, HttpStatus.OK);
+    }
 }

@@ -1,7 +1,6 @@
 package dev.project.airline.reservation;
 
 import dev.project.airline.airport.Airport;
-import dev.project.airline.flight.Flight;
 
 public class ReservationAirportResponse {
     private Long id;
@@ -11,4 +10,13 @@ public class ReservationAirportResponse {
         this.id = airport.getId();
         this.airportName = airport.getName();
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getAirportName() {
+        return airportName;
+    }
+    
 }

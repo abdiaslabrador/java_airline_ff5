@@ -2,7 +2,6 @@ package dev.project.airline.reservation;
 
 import java.time.LocalDateTime;
 
-import dev.project.airline.airport.Airport;
 import dev.project.airline.flight.Flight;
 
 public class ReservationFlightResume {
@@ -22,8 +21,8 @@ public class ReservationFlightResume {
         this.code = flight.getCode();
         this.maxSeats = flight.getMaxSeats();
         this.seatsOccupied = flight.getSeatsOccupied();
-        this.airportOrigin = this.airportOrigin;
-        this.airportDest = this.airportDest;
+        this.airportOrigin = airportOrigin;
+        this.airportDest = airportDest;
     }
 
     public Long getId() {

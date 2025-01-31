@@ -3,7 +3,6 @@ package dev.project.airline.securityConfig;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.springframework.boot.autoconfigure.task.TaskExecutionProperties.Simple;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

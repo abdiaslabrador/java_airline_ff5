@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 
 import dev.project.airline.flight.Flight;
 import dev.project.airline.user.User;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,8 +29,6 @@ public class Reservation {
 
     private int quantitySeats;
     private Timestamp blockingTime;
-
-    
 
     public Reservation() {
     }
@@ -83,5 +80,4 @@ public class Reservation {
     public void setQuantitySeats(int quantitySeats) {
         this.quantitySeats = quantitySeats;
     }
-    
 }
