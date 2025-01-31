@@ -11,8 +11,8 @@ INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_READ_FLIGHTS'); --7
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_CREATE_FLIGHTS'); --8
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_UPDATE_FLIGHTS'); --9
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_DELETE_FLIGHTS'); --10
-INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_READ_RESERVATION'); --11
 
+INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'ADMIN_READ_RESERVATION'); --11
 INSERT INTO roles (id_role, name) VALUES (DEFAULT, 'USER_READ_RESERVATION'); --12
 
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepe', '$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO');
